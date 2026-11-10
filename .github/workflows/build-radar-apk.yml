@@ -24,20 +24,20 @@ jobs:
           packages: platform-tools platforms;android-37.0 build-tools;36.0.0 ndk;28.2.13676358
       - uses: gradle/actions/setup-gradle@v4
       - name: Testes do alerta de radar e APK
-        run: ./gradlew :common:testDebugUnitTest --tests "com.shilapi.xcertplay.radar.*" --tests "com.shilapi.xcertplay.SettingsTranslationsTest" --tests "com.shilapi.xcertplay.SettingsLayoutPolicyTest" :mobile:assembleDebug --stacktrace
+        run: ./gradlew :common:testDebugUnitTest --tests "com.shilapi.xcertplay.radar.*" --tests "com.shilapi.xcertplay.SettingsTranslationsTest" --tests "com.shilapi.xcertplay.SettingsLayoutPolicyTest" :mobile:assembleRadar --stacktrace
       - uses: actions/upload-artifact@v4
         with:
           name: DiPlay-radar-apk
-          path: mobile/build/outputs/apk/debug/*.apk
+          path: mobile/build/outputs/apk/radar/*.apk
       - name: Publicar APK em link fixo
         if: github.ref_name == 'radar-alert' || github.ref_name == 'main'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          cp "$(ls mobile/build/outputs/apk/debug/*.apk | head -1)" DiPlay-radar.apk
+          cp "$(ls mobile/build/outputs/apk/radar/*.apk | head -1)" DiPlay-radar.apk
           gh release delete radar-latest --yes --cleanup-tag || true
           gh release create radar-latest DiPlay-radar.apk \
-            --title "DiPlay com alerta de radar" \
+            --title "DiPlay Radar" \
             --notes "APK gerado do branch ${{ github.ref_name }} (commit ${{ github.sha }}). Link fixo: https://github.com/${{ github.repository }}/releases/download/radar-latest/DiPlay-radar.apk" \
             --target "${{ github.sha }}" --latest
       - name: Relatórios dos testes

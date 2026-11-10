@@ -42,6 +42,16 @@ android {
             applicationIdSuffix = ".hudtest"
             versionNameSuffix = "-hud-test"
         }
+        // DiPlay com alerta de radar: app próprio ("DiPlay Radar"), sem as ferramentas de teste do HUD,
+        // assinado com a chave de debug para ser gerado no GitHub Actions sem a chave oficial.
+        create("radar") {
+            initWith(getByName("debug"))
+            applicationIdSuffix = ".radar"
+            versionNameSuffix = "-radar"
+            isDebuggable = false
+            signingConfig = signingConfigs.getByName("debug")
+            matchingFallbacks += listOf("debug")
+        }
         release {
             optimization {
                 enable = false
