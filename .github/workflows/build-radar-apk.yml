@@ -5,6 +5,9 @@ on:
   workflow_dispatch:
   push:
     branches: [main, radar-alert]
+    paths-ignore:
+      - 'ios-radar/**'
+      - '.github/workflows/build-radar-ios.yml'
 
 permissions:
   # Para publicar o APK na página de Releases (link fixo de download).

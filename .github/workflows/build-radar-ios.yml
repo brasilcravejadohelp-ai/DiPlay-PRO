@@ -1,0 +1,53 @@
+name: App iOS Radar SP
+# Compila o app de iPhone (sem assinatura) e publica o .ipa num link fixo.
+# Instale com SideStore ou AltStore, que assinam com o seu Apple ID.
+on:
+  workflow_dispatch:
+  push:
+    branches: [radar-alert]
+    paths:
+      - 'ios-radar/**'
+      - '.github/workflows/build-radar-ios.yml'
+permissions:
+  contents: write
+jobs:
+  ipa:
+    runs-on: macos-15
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: Gerar projeto do Xcode
+        run: |
+          brew install xcodegen
+          cd ios-radar && xcodegen generate
+      - name: Compilar
+        run: |
+          cd ios-radar
+          set -o pipefail
+          xcodebuild -project RadarAlerta.xcodeproj -scheme RadarAlerta -configuration Release \
+            -sdk iphoneos -destination 'generic/platform=iOS' -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" build 2>&1 | tee xcodebuild.log
+      - name: Montar o .ipa
+        run: |
+          cd ios-radar
+          mkdir -p Payload
+          cp -R build/Build/Products/Release-iphoneos/RadarAlerta.app Payload/
+          zip -qry RadarSP.ipa Payload
+      - name: Publicar o .ipa em link fixo
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete radar-ios-latest --yes --cleanup-tag || true
+          gh release create radar-ios-latest ios-radar/RadarSP.ipa \
+            --title "Radar SP para iPhone" \
+            --notes "Instale com SideStore ou AltStore. Link fixo: https://github.com/${{ github.repository }}/releases/download/radar-ios-latest/RadarSP.ipa" \
+            --target "${{ github.sha }}" --latest=false
+      - name: Publicar o log se falhar
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          grep -E "error:|warning: .*error|BUILD FAILED" -A3 ios-radar/xcodebuild.log > ios-radar/erros.txt || true
+          tail -200 ios-radar/xcodebuild.log >> ios-radar/erros.txt || true
+          gh release delete radar-ios-log --yes --cleanup-tag || true
+          gh release create radar-ios-log ios-radar/erros.txt --title "Log de erro iOS" --notes "log" --prerelease --target "${{ github.sha }}"
