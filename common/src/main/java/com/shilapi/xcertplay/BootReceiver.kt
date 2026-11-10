@@ -12,6 +12,8 @@ class BootReceiver : BroadcastReceiver() {
         if (intent.action != Intent.ACTION_BOOT_COMPLETED) return
         // Starts the watcher for other apps' calls when that setting is on, even without opening DiPlay.
         PhoneAudioRoute.attach(context)
+        // Speed camera alerts start with the car when the driver has them on, even if DiPlay stays closed.
+        com.shilapi.xcertplay.radar.RadarAlertService.startIfEnabled(context)
         val launchEnabled = AirPlayPersistence.loadAutoStartOnBoot(context)
         StartupDiagnosticSnapshot.received(context, launchEnabled)
         if (!launchEnabled) return

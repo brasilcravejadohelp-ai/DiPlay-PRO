@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Speed camera alerts. -->
+<resources>
+    <string name="settings_radar_alerts">تنبيهات كاميرات السرعة</string>
+    <string name="settings_radar_alerts_description">ينبّهك بنغمات وجملة منطوقة ونافذة فوق CarPlay قبل الوصول إلى كاميرا سرعة، باستخدام GPS السيارة. يستمر في العمل في الخلفية فوق أي تطبيق، سواء كان iPhone متصلًا أم لا. تأتي مواقع الكاميرات من OpenStreetMap وتتحدّث عندما يتوفر الإنترنت في السيارة. يحتاج إلى الموقع الدقيق وإذن \"العرض فوق التطبيقات الأخرى\".</string>
+    <string name="settings_radar_alert_distance">التنبيه على بعد</string>
+    <string name="settings_radar_meters">%1$d م</string>
+    <string name="settings_radar_voice">تنبيه صوتي</string>
+    <string name="settings_radar_voice_description">يذكر المسافة وحد السرعة بعد النغمات.</string>
+    <string name="settings_radar_floating_card">بطاقة السرعة العائمة</string>
+    <string name="settings_radar_floating_card_description">تعرض بطاقة صغيرة بسرعتك والكاميرا التالية فوق كل الشاشات. اسحبها إلى أي مكان؛ اضغط عليها مطولًا لتحديد كاميرا غير موجودة.</string>
+    <string name="settings_radar_update_now">تحديث قائمة الكاميرات</string>
+    <string name="settings_radar_updating">جارٍ تحديث قائمة الكاميرات عند الموقع التالي…</string>
+    <string name="settings_radar_update_failed">تعذّر الوصول إلى خادم الكاميرات. ستُستخدم القائمة المحفوظة.</string>
+    <string name="settings_radar_status">%1$d كاميرا محفوظة · حُدّثت %2$s</string>
+    <string name="settings_radar_status_never">لم يتم تنزيل أي كاميرا بعد. يتم التنزيل فور توفر الإنترنت في السيارة.</string>
+    <string name="settings_radar_overlay_missing">اسمح بـ\"العرض فوق التطبيقات الأخرى\" للنافذة. بدونه تصل التنبيهات كإشعارات.</string>
+    <string name="settings_radar_allow_overlay">السماح بالنافذة فوق التطبيقات</string>
+</resources>

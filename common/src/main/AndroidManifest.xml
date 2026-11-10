@@ -70,6 +70,9 @@
         </activity>
         <service android:name="com.shilapi.xcertplay.DiPlaySessionService"
             android:exported="false" android:foregroundServiceType="connectedDevice|microphone|location" />
+        <!-- Speed camera alerts over every screen; runs on its own, without a CarPlay session. -->
+        <service android:name="com.shilapi.xcertplay.radar.RadarAlertService"
+            android:exported="false" android:foregroundServiceType="location" />
 
         <activity
             android:name="com.shilapi.xcertplay.CarPlayHostActivity"

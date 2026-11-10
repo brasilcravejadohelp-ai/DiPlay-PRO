@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Speed camera alerts. -->
+<resources>
+    <string name="settings_radar_alerts">速度取締機アラート</string>
+    <string name="settings_radar_alerts_description">車のGPSを使い、速度取締機に近づく前に通知音・音声・CarPlay上のポップアップで知らせます。iPhoneの接続に関係なく、どのアプリの上でもバックグラウンドで動作します。取締機の位置はOpenStreetMapから取得し、車がインターネットに接続されると更新されます。正確な位置情報と「他のアプリの上に重ねて表示」が必要です。</string>
+    <string name="settings_radar_alert_distance">通知する距離</string>
+    <string name="settings_radar_meters">%1$d m</string>
+    <string name="settings_radar_voice">音声で通知</string>
+    <string name="settings_radar_voice_description">通知音のあとに距離と制限速度を読み上げます。</string>
+    <string name="settings_radar_floating_card">フローティング速度カード</string>
+    <string name="settings_radar_floating_card_description">速度と次の取締機を示す小さなカードをすべての画面の上に表示します。ドラッグで移動、長押しで未登録の取締機を記録します。</string>
+    <string name="settings_radar_update_now">取締機リストを更新</string>
+    <string name="settings_radar_updating">次の位置で取締機リストを更新しています…</string>
+    <string name="settings_radar_update_failed">取締機サーバーに接続できませんでした。保存済みのリストを使用します。</string>
+    <string name="settings_radar_status">%1$d 件保存済み · %2$s に更新</string>
+    <string name="settings_radar_status_never">まだ取締機をダウンロードしていません。車がインターネットに接続されるとすぐにダウンロードします。</string>
+    <string name="settings_radar_overlay_missing">ポップアップには「他のアプリの上に重ねて表示」を許可してください。許可しない場合は通知で知らせます。</string>
+    <string name="settings_radar_allow_overlay">他のアプリの上への表示を許可</string>
+</resources>

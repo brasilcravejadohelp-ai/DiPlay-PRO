@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Speed camera alerts. -->
+<resources>
+    <string name="settings_radar_alerts">Speed camera alerts</string>
+    <string name="settings_radar_alerts_description">Warns with tones, a spoken sentence and a pop-up over CarPlay before you reach a speed camera, using the car\'s own GPS. Keeps running in the background over any app, with or without the iPhone connected. Camera locations come from OpenStreetMap and update when the car has internet. Needs precise location and \"display over other apps\".</string>
+    <string name="settings_radar_alert_distance">Warn at</string>
+    <string name="settings_radar_meters">%1$d m</string>
+    <string name="settings_radar_voice">Spoken warning</string>
+    <string name="settings_radar_voice_description">Says the distance and the speed limit after the tones.</string>
+    <string name="settings_radar_floating_card">Floating speed card</string>
+    <string name="settings_radar_floating_card_description">Keeps a small card with your speed and the next camera over every screen. Drag it anywhere; hold it to mark a camera that is missing.</string>
+    <string name="settings_radar_update_now">Update camera list</string>
+    <string name="settings_radar_updating">Updating the camera list at the next position…</string>
+    <string name="settings_radar_update_failed">Could not reach the camera server. The saved list is still used.</string>
+    <string name="settings_radar_status">%1$d cameras saved · updated %2$s</string>
+    <string name="settings_radar_status_never">No cameras downloaded yet. They download as soon as the car has internet.</string>
+    <string name="settings_radar_overlay_missing">Allow \"display over other apps\" for the pop-up. Without it, alerts come as notifications.</string>
+    <string name="settings_radar_allow_overlay">Allow pop-up over other apps</string>
+    <string name="radar_alert_title">SPEED CAMERA</string>
+    <string name="radar_alert_distance">%1$d m</string>
+    <string name="radar_alert_distance_short">%1$s</string>
+    <string name="radar_no_camera_ahead">No camera ahead</string>
+    <string name="radar_speak_with_limit">Speed camera in %1$d meters, limit %2$d</string>
+    <string name="radar_speak">Speed camera in %1$d meters</string>
+    <string name="radar_channel_running">Speed camera alerts running</string>
+    <string name="radar_channel_alerts">Speed camera warnings</string>
+    <string name="radar_running">Watching for speed cameras</string>
+    <string name="radar_stop">Stop</string>
+    <string name="radar_update_done">Camera list updated: %1$d cameras</string>
+    <string name="radar_mark_no_position">No position yet to mark a camera</string>
+    <string name="radar_marked">Camera saved here</string>
+</resources>

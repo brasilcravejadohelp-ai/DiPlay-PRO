@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Speed camera alerts. -->
+<resources>
+    <string name="settings_radar_alerts">測速照相提醒</string>
+    <string name="settings_radar_alerts_description">使用車輛本身的 GPS，在接近測速照相前以提示音、語音和 CarPlay 上方的彈出視窗提醒你。無論 iPhone 是否連線，都會在任何 App 上方於背景執行。測速照相位置來自 OpenStreetMap，車輛連上網路時自動更新。需要精確位置與「在其他應用程式上層顯示」權限。</string>
+    <string name="settings_radar_alert_distance">提醒距離</string>
+    <string name="settings_radar_meters">%1$d 公尺</string>
+    <string name="settings_radar_voice">語音提醒</string>
+    <string name="settings_radar_voice_description">提示音後播報距離與速限。</string>
+    <string name="settings_radar_floating_card">浮動車速卡片</string>
+    <string name="settings_radar_floating_card_description">在所有畫面上方顯示車速與下一個測速照相的小卡片。可拖曳到任意位置；長按可標記缺少的測速照相。</string>
+    <string name="settings_radar_update_now">更新測速照相清單</string>
+    <string name="settings_radar_updating">將在下一個位置更新測速照相清單…</string>
+    <string name="settings_radar_update_failed">無法連線至測速照相伺服器，繼續使用已儲存的清單。</string>
+    <string name="settings_radar_status">已儲存 %1$d 個測速照相 · 更新於 %2$s</string>
+    <string name="settings_radar_status_never">尚未下載測速照相。車輛連上網路後會立即下載。</string>
+    <string name="settings_radar_overlay_missing">請允許「在其他應用程式上層顯示」以顯示彈出視窗。否則提醒會以通知方式出現。</string>
+    <string name="settings_radar_allow_overlay">允許在其他應用程式上層彈出</string>
+</resources>

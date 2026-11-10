@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Speed camera alerts. -->
+<resources>
+    <string name="settings_radar_alerts">Попередження про камери</string>
+    <string name="settings_radar_alerts_description">Попереджає сигналами, голосом і вікном поверх CarPlay перед камерою контролю швидкості, використовуючи GPS автомобіля. Працює у фоні поверх будь-якого застосунку, з підключеним iPhone чи без нього. Розташування камер береться з OpenStreetMap і оновлюється, коли в автомобіля є інтернет. Потрібні точне місцезнаходження та «поверх інших застосунків».</string>
+    <string name="settings_radar_alert_distance">Попереджати за</string>
+    <string name="settings_radar_meters">%1$d м</string>
+    <string name="settings_radar_voice">Голосове попередження</string>
+    <string name="settings_radar_voice_description">Називає відстань і обмеження після сигналів.</string>
+    <string name="settings_radar_floating_card">Плаваюча картка швидкості</string>
+    <string name="settings_radar_floating_card_description">Показує маленьку картку зі швидкістю та наступною камерою поверх усіх екранів. Перетягніть її будь-куди; утримуйте, щоб позначити відсутню камеру.</string>
+    <string name="settings_radar_update_now">Оновити список камер</string>
+    <string name="settings_radar_updating">Список камер оновиться в наступній точці…</string>
+    <string name="settings_radar_update_failed">Не вдалося зв\'язатися із сервером камер. Використовується збережений список.</string>
+    <string name="settings_radar_status">Збережено камер: %1$d · оновлено %2$s</string>
+    <string name="settings_radar_status_never">Камери ще не завантажено. Вони завантажаться, щойно в автомобіля з\'явиться інтернет.</string>
+    <string name="settings_radar_overlay_missing">Дозвольте «поверх інших застосунків» для вікна. Без цього попередження надходять сповіщеннями.</string>
+    <string name="settings_radar_allow_overlay">Дозволити вікно поверх застосунків</string>
+</resources>

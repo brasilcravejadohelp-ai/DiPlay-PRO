@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Speed camera alerts. -->
+<resources>
+    <string name="settings_radar_alerts">测速摄像头提醒</string>
+    <string name="settings_radar_alerts_description">使用车辆自身的 GPS，在接近测速摄像头前通过提示音、语音和 CarPlay 上方的弹窗提醒你。无论 iPhone 是否连接，都会在任何应用上方后台运行。摄像头位置来自 OpenStreetMap，车辆联网时自动更新。需要精确位置和“显示在其他应用上层”权限。</string>
+    <string name="settings_radar_alert_distance">提醒距离</string>
+    <string name="settings_radar_meters">%1$d 米</string>
+    <string name="settings_radar_voice">语音提醒</string>
+    <string name="settings_radar_voice_description">提示音后播报距离和限速。</string>
+    <string name="settings_radar_floating_card">悬浮速度卡片</string>
+    <string name="settings_radar_floating_card_description">在所有界面上方显示车速和下一个摄像头的小卡片。可拖动到任意位置；长按可标记缺失的摄像头。</string>
+    <string name="settings_radar_update_now">更新摄像头列表</string>
+    <string name="settings_radar_updating">将在下一个位置更新摄像头列表…</string>
+    <string name="settings_radar_update_failed">无法连接摄像头服务器，继续使用已保存的列表。</string>
+    <string name="settings_radar_status">已保存 %1$d 个摄像头 · 更新于 %2$s</string>
+    <string name="settings_radar_status_never">尚未下载摄像头。车辆联网后会立即下载。</string>
+    <string name="settings_radar_overlay_missing">请允许“显示在其他应用上层”以显示弹窗。否则提醒将以通知形式出现。</string>
+    <string name="settings_radar_allow_overlay">允许在其他应用上层弹窗</string>
+</resources>

@@ -127,6 +127,7 @@ internal enum class SettingsSection {
     AUDIO_ROUTING,
     NAVIGATION_WHEEL,
     LOCATION,
+    RADAR_ALERTS,
     CLUSTER_MAP,
     LAUNCHER_BUBBLE,
     BYD_NAVIGATION,
@@ -148,7 +149,7 @@ internal object SettingsInformationArchitecture {
         ),
         SettingsCategory.DISPLAY to setOf(SettingsSection.DISPLAY_AND_PERFORMANCE),
         SettingsCategory.AUDIO to setOf(SettingsSection.AUDIO_ROUTING),
-        SettingsCategory.NAVIGATION to setOf(SettingsSection.LOCATION, SettingsSection.BYD_NAVIGATION),
+        SettingsCategory.NAVIGATION to setOf(SettingsSection.LOCATION, SettingsSection.RADAR_ALERTS, SettingsSection.BYD_NAVIGATION),
         SettingsCategory.VEHICLE to setOf(
             SettingsSection.CARPLAY_CONTROLS,
             SettingsSection.WHEEL_KEYS,
@@ -331,6 +332,14 @@ class DiPlayActivity : ComponentActivity(), AppAppearanceOwner {
             permissionHelp(getString(R.string.location), getString(R.string.allow_precise_location_for_diplay_in_the_head_unit_s_app_p))
         }
     }
+    private val radarLocationPermission = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) {
+        if (hasPreciseLocation()) {
+            enableRadarAlerts()
+        } else {
+            render()
+            permissionHelp(getString(R.string.settings_radar_alerts), getString(R.string.allow_precise_location_for_diplay_in_the_head_unit_s_app_p))
+        }
+    }
     private val iconPicker = registerForActivityResult(ActivityResultContracts.GetContent(), ::cropIcon)
     private val iconDocumentPicker = registerForActivityResult(ActivityResultContracts.OpenDocument(), ::cropIcon)
     private fun cropIcon(uri: Uri?) {
@@ -390,6 +399,7 @@ class DiPlayActivity : ComponentActivity(), AppAppearanceOwner {
         // before showing anything, so the cluster is not left on DiPlay's last frame.
         GeelyClusterProjection.releaseStale(applicationContext)
         PhoneAudioRoute.attach(applicationContext)
+        com.shilapi.xcertplay.radar.RadarAlertService.startIfEnabled(applicationContext)
         WindowCompat.setDecorFitsSystemWindows(window, false)
         if (Build.VERSION.SDK_INT >= 28) {
             window.attributes = window.attributes.apply {
@@ -493,6 +503,64 @@ class DiPlayActivity : ComponentActivity(), AppAppearanceOwner {
         interfaceOverride = next
         return false
     }
+    // Speed camera alerts: a background service of their own, independent of the CarPlay session.
+    private fun radarAlertControls(card: LinearLayout) {
+        val radar = com.shilapi.xcertplay.radar.RadarAlertSettings
+        val enabled = radar.enabled(this) && hasPreciseLocation()
+        toggle(card, getString(R.string.settings_radar_alerts), getString(R.string.settings_radar_alerts_description), enabled) { on ->
+            if (!on) {
+                radar.setEnabled(this, false)
+                com.shilapi.xcertplay.radar.RadarAlertService.stop(this)
+                render()
+            } else if (!hasPreciseLocation()) {
+                render()
+                radarLocationPermission.launch(arrayOf(
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.ACCESS_COARSE_LOCATION,
+                ))
+            } else {
+                enableRadarAlerts()
+            }
+        }
+        if (!enabled) return
+        val distances = radar.distanceChoicesMeters
+        choice(card, getString(R.string.settings_radar_alert_distance),
+            distances.map { getString(R.string.settings_radar_meters, it) },
+            distances.indexOf(radar.distanceMeters(this)), reconnects = false) {
+            radar.setDistanceMeters(this, distances[it])
+        }
+        toggle(card, getString(R.string.settings_radar_voice), getString(R.string.settings_radar_voice_description),
+            radar.voice(this)) { radar.setVoice(this, it) }
+        toggle(card, getString(R.string.settings_radar_floating_card), getString(R.string.settings_radar_floating_card_description),
+            radar.floatingCard(this)) { on ->
+            radar.setFloatingCard(this, on)
+            if (on && !Settings.canDrawOverlays(this)) openOverlayPermission()
+        }
+        card.addView(button(getString(R.string.settings_radar_update_now), false) {
+            com.shilapi.xcertplay.radar.RadarAlertService.requestUpdate(this)
+            toast(getString(R.string.settings_radar_updating))
+        }, matchButton(10, 56))
+        val count = com.shilapi.xcertplay.radar.RadarCameraStore.savedCount(this)
+        val updated = com.shilapi.xcertplay.radar.RadarCameraStore.savedUpdateMillis(this)
+        card.addView(label(
+            if (updated == 0L) getString(R.string.settings_radar_status_never)
+            else getString(R.string.settings_radar_status, count,
+                android.text.format.DateUtils.getRelativeTimeSpanString(updated, System.currentTimeMillis(),
+                    android.text.format.DateUtils.MINUTE_IN_MILLIS).toString()),
+            14, MUTED))
+        if (!Settings.canDrawOverlays(this)) {
+            card.addView(label(getString(R.string.settings_radar_overlay_missing), 14, WARNING))
+            card.addView(button(getString(R.string.settings_radar_allow_overlay), false) { openOverlayPermission() }, matchButton(10, 56))
+        }
+    }
+
+    private fun enableRadarAlerts() {
+        com.shilapi.xcertplay.radar.RadarAlertSettings.setEnabled(this, true)
+        com.shilapi.xcertplay.radar.RadarAlertService.startIfEnabled(applicationContext)
+        if (!Settings.canDrawOverlays(this)) openOverlayPermission()
+        render()
+    }
+
     private fun openOverlayPermission() {
         val intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:$packageName"))
         if (runCatching { startActivity(intent) }.isFailure) {
@@ -2132,6 +2200,8 @@ class DiPlayActivity : ComponentActivity(), AppAppearanceOwner {
                 AirPlayPersistence.loadLocationReportingEnabled(this), save = ::onLocationReportingChanged)
             card.addView(label(getString(R.string.location_reporting_reconnects), 14, MUTED))
         }
+        filteredSection(content, SettingsSection.RADAR_ALERTS,
+            getString(R.string.settings_radar_alerts), R.drawable.ic_dp_navigation) { card -> radarAlertControls(card) }
         // A launcher shortcut. Some head units' launchers list only their own cards, so a normally
         // installed app never appears on the home screen; this app draws its own way back instead (#650).
         filteredSection(content, SettingsSection.LAUNCHER_BUBBLE,

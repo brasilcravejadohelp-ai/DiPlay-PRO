@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Speed camera alerts. -->
+<resources>
+    <string name="settings_radar_alerts">Alerta de radar</string>
+    <string name="settings_radar_alerts_description">Avisa com bipes, voz e um pop-up por cima do CarPlay antes de você chegar a um radar, usando o GPS do próprio carro. Continua funcionando em segundo plano sobre qualquer app, com ou sem o iPhone conectado. Os radares vêm do OpenStreetMap e se atualizam quando o carro tem internet. Precisa de localização precisa e de \"sobrepor a outros apps\".</string>
+    <string name="settings_radar_alert_distance">Avisar a</string>
+    <string name="settings_radar_meters">%1$d m</string>
+    <string name="settings_radar_voice">Aviso por voz</string>
+    <string name="settings_radar_voice_description">Fala a distância e o limite depois dos bipes.</string>
+    <string name="settings_radar_floating_card">Cartão flutuante de velocidade</string>
+    <string name="settings_radar_floating_card_description">Mantém um cartão pequeno com sua velocidade e o próximo radar por cima de todas as telas. Arraste para onde quiser; segure para marcar um radar que esteja faltando.</string>
+    <string name="settings_radar_update_now">Atualizar lista de radares</string>
+    <string name="settings_radar_updating">Atualizando a lista de radares na próxima posição…</string>
+    <string name="settings_radar_update_failed">Não foi possível falar com o servidor de radares. A lista salva continua sendo usada.</string>
+    <string name="settings_radar_status">%1$d radares salvos · atualizado %2$s</string>
+    <string name="settings_radar_status_never">Nenhum radar baixado ainda. Eles são baixados assim que o carro tiver internet.</string>
+    <string name="settings_radar_overlay_missing">Permita \"sobrepor a outros apps\" para o pop-up. Sem isso, os alertas chegam como notificação.</string>
+    <string name="settings_radar_allow_overlay">Permitir pop-up sobre outros apps</string>
+    <string name="radar_alert_title">RADAR</string>
+    <string name="radar_alert_distance">%1$d m</string>
+    <string name="radar_alert_distance_short">%1$s</string>
+    <string name="radar_no_camera_ahead">Nenhum radar à frente</string>
+    <string name="radar_speak_with_limit">Radar a %1$d metros, limite %2$d</string>
+    <string name="radar_speak">Radar a %1$d metros</string>
+    <string name="radar_channel_running">Alerta de radar ativo</string>
+    <string name="radar_channel_alerts">Avisos de radar</string>
+    <string name="radar_running">Procurando radares</string>
+    <string name="radar_stop">Parar</string>
+    <string name="radar_update_done">Lista de radares atualizada: %1$d radares</string>
+    <string name="radar_mark_no_position">Ainda sem posição para marcar o radar</string>
+    <string name="radar_marked">Radar salvo aqui</string>
+</resources>

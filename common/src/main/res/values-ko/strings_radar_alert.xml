@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Speed camera alerts. -->
+<resources>
+    <string name="settings_radar_alerts">과속 단속 카메라 알림</string>
+    <string name="settings_radar_alerts_description">차량 GPS로 과속 단속 카메라에 도착하기 전에 신호음, 음성, CarPlay 위 팝업으로 알려 줍니다. iPhone 연결 여부와 관계없이 어떤 앱 위에서도 백그라운드로 동작합니다. 카메라 위치는 OpenStreetMap에서 가져오며 차량이 인터넷에 연결되면 업데이트됩니다. 정확한 위치와 \'다른 앱 위에 표시\' 권한이 필요합니다.</string>
+    <string name="settings_radar_alert_distance">알림 거리</string>
+    <string name="settings_radar_meters">%1$d m</string>
+    <string name="settings_radar_voice">음성 안내</string>
+    <string name="settings_radar_voice_description">신호음 뒤에 거리와 제한 속도를 말해 줍니다.</string>
+    <string name="settings_radar_floating_card">떠 있는 속도 카드</string>
+    <string name="settings_radar_floating_card_description">속도와 다음 카메라를 보여 주는 작은 카드를 모든 화면 위에 표시합니다. 원하는 곳으로 끌어 옮기고, 길게 눌러 빠진 카메라를 표시하세요.</string>
+    <string name="settings_radar_update_now">카메라 목록 업데이트</string>
+    <string name="settings_radar_updating">다음 위치에서 카메라 목록을 업데이트하는 중…</string>
+    <string name="settings_radar_update_failed">카메라 서버에 연결할 수 없습니다. 저장된 목록을 계속 사용합니다.</string>
+    <string name="settings_radar_status">카메라 %1$d개 저장됨 · %2$s 업데이트</string>
+    <string name="settings_radar_status_never">아직 다운로드한 카메라가 없습니다. 차량이 인터넷에 연결되면 바로 다운로드합니다.</string>
+    <string name="settings_radar_overlay_missing">팝업을 위해 \'다른 앱 위에 표시\'를 허용하세요. 허용하지 않으면 알림으로 알려 줍니다.</string>
+    <string name="settings_radar_allow_overlay">다른 앱 위 팝업 허용</string>
+</resources>

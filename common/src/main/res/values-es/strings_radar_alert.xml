@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Speed camera alerts. -->
+<resources>
+    <string name="settings_radar_alerts">Alertas de radar</string>
+    <string name="settings_radar_alerts_description">Avisa con pitidos, una frase hablada y una ventana sobre CarPlay antes de llegar a un radar, usando el GPS del propio coche. Sigue funcionando en segundo plano sobre cualquier app, con o sin el iPhone conectado. Los radares vienen de OpenStreetMap y se actualizan cuando el coche tiene internet. Necesita ubicación precisa y \"mostrar sobre otras apps\".</string>
+    <string name="settings_radar_alert_distance">Avisar a</string>
+    <string name="settings_radar_meters">%1$d m</string>
+    <string name="settings_radar_voice">Aviso hablado</string>
+    <string name="settings_radar_voice_description">Dice la distancia y el límite después de los pitidos.</string>
+    <string name="settings_radar_floating_card">Tarjeta flotante de velocidad</string>
+    <string name="settings_radar_floating_card_description">Muestra una tarjeta pequeña con tu velocidad y el próximo radar sobre todas las pantallas. Arrástrala donde quieras; mantenla pulsada para marcar un radar que falte.</string>
+    <string name="settings_radar_update_now">Actualizar lista de radares</string>
+    <string name="settings_radar_updating">Actualizando la lista de radares en la próxima posición…</string>
+    <string name="settings_radar_update_failed">No se pudo contactar con el servidor de radares. Se sigue usando la lista guardada.</string>
+    <string name="settings_radar_status">%1$d radares guardados · actualizada %2$s</string>
+    <string name="settings_radar_status_never">Aún no se ha descargado ningún radar. Se descargan en cuanto el coche tenga internet.</string>
+    <string name="settings_radar_overlay_missing">Permite \"mostrar sobre otras apps\" para la ventana. Sin ello, los avisos llegan como notificaciones.</string>
+    <string name="settings_radar_allow_overlay">Permitir ventana sobre otras apps</string>
+</resources>

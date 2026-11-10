@@ -1,0 +1,36 @@
+name: APK com alerta de radar
+# Gera o APK do DiPlay com o alerta de radar para instalar na central do carro.
+# GitHub > Actions > "APK com alerta de radar" > Run workflow; o APK fica em "Artifacts".
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, radar-alert]
+
+permissions:
+  contents: read
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+      - uses: android-actions/setup-android@v3
+        with:
+          packages: platform-tools platforms;android-37.0 build-tools;36.0.0 ndk;28.2.13676358
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Testes do alerta de radar e APK
+        run: ./gradlew :common:testDebugUnitTest --tests "com.shilapi.xcertplay.radar.*" --tests "com.shilapi.xcertplay.SettingsTranslationsTest" --tests "com.shilapi.xcertplay.SettingsLayoutPolicyTest" :mobile:assembleDebug --stacktrace
+      - uses: actions/upload-artifact@v4
+        with:
+          name: DiPlay-radar-apk
+          path: mobile/build/outputs/apk/debug/*.apk
+      - name: Relatórios dos testes
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: radar-test-reports
+          path: common/build/reports/tests/

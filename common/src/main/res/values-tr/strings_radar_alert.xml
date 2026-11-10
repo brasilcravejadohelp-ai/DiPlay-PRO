@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Speed camera alerts. -->
+<resources>
+    <string name="settings_radar_alerts">Hız kamerası uyarıları</string>
+    <string name="settings_radar_alerts_description">Aracın kendi GPS\'ini kullanarak bir hız kamerasına ulaşmadan önce sesli uyarı, konuşma ve CarPlay üzerinde bir açılır pencereyle uyarır. iPhone bağlı olsun ya da olmasın, her uygulamanın üzerinde arka planda çalışmaya devam eder. Kamera konumları OpenStreetMap\'ten gelir ve araçta internet olduğunda güncellenir. Hassas konum ve \"diğer uygulamaların üzerinde göster\" izni gerekir.</string>
+    <string name="settings_radar_alert_distance">Uyarı mesafesi</string>
+    <string name="settings_radar_meters">%1$d m</string>
+    <string name="settings_radar_voice">Sesli uyarı</string>
+    <string name="settings_radar_voice_description">Sinyallerden sonra mesafeyi ve hız sınırını söyler.</string>
+    <string name="settings_radar_floating_card">Yüzen hız kartı</string>
+    <string name="settings_radar_floating_card_description">Hızınızı ve sıradaki kamerayı gösteren küçük bir kartı tüm ekranların üzerinde tutar. İstediğiniz yere sürükleyin; eksik bir kamerayı işaretlemek için basılı tutun.</string>
+    <string name="settings_radar_update_now">Kamera listesini güncelle</string>
+    <string name="settings_radar_updating">Kamera listesi sonraki konumda güncelleniyor…</string>
+    <string name="settings_radar_update_failed">Kamera sunucusuna ulaşılamadı. Kayıtlı liste kullanılmaya devam ediyor.</string>
+    <string name="settings_radar_status">%1$d kamera kayıtlı · %2$s güncellendi</string>
+    <string name="settings_radar_status_never">Henüz kamera indirilmedi. Araçta internet olur olmaz indirilir.</string>
+    <string name="settings_radar_overlay_missing">Açılır pencere için \"diğer uygulamaların üzerinde göster\" iznini verin. İzin olmadan uyarılar bildirim olarak gelir.</string>
+    <string name="settings_radar_allow_overlay">Diğer uygulamaların üzerinde pencereye izin ver</string>
+</resources>

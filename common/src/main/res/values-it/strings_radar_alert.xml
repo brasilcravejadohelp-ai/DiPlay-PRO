@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Speed camera alerts. -->
+<resources>
+    <string name="settings_radar_alerts">Avvisi autovelox</string>
+    <string name="settings_radar_alerts_description">Avvisa con segnali acustici, una frase parlata e un riquadro sopra CarPlay prima di raggiungere un autovelox, usando il GPS dell\'auto. Continua a funzionare in background sopra qualsiasi app, con o senza iPhone collegato. Le posizioni arrivano da OpenStreetMap e si aggiornano quando l\'auto ha internet. Richiede la posizione precisa e \"mostra sopra altre app\".</string>
+    <string name="settings_radar_alert_distance">Avvisa a</string>
+    <string name="settings_radar_meters">%1$d m</string>
+    <string name="settings_radar_voice">Avviso vocale</string>
+    <string name="settings_radar_voice_description">Dice la distanza e il limite dopo i segnali acustici.</string>
+    <string name="settings_radar_floating_card">Riquadro mobile della velocità</string>
+    <string name="settings_radar_floating_card_description">Mostra un piccolo riquadro con la velocità e il prossimo autovelox sopra ogni schermata. Trascinalo dove vuoi; tienilo premuto per segnare un autovelox mancante.</string>
+    <string name="settings_radar_update_now">Aggiorna elenco autovelox</string>
+    <string name="settings_radar_updating">Aggiornamento dell\'elenco alla prossima posizione…</string>
+    <string name="settings_radar_update_failed">Impossibile raggiungere il server degli autovelox. Viene usato l\'elenco salvato.</string>
+    <string name="settings_radar_status">%1$d autovelox salvati · aggiornato %2$s</string>
+    <string name="settings_radar_status_never">Nessun autovelox scaricato. Verranno scaricati appena l\'auto avrà internet.</string>
+    <string name="settings_radar_overlay_missing">Consenti \"mostra sopra altre app\" per il riquadro. Senza, gli avvisi arrivano come notifiche.</string>
+    <string name="settings_radar_allow_overlay">Consenti riquadro sopra altre app</string>
+</resources>
